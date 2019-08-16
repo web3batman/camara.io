@@ -10,6 +10,8 @@
 
 // Put variables in global scope to make them available to the browser console.
 const video = document.querySelector('video');
+video.style.width = document.width + 'px';
+video.style.height = document.height + 'px';
 video.setAttribute('autoplay', '');
 video.setAttribute('muted', '');
 video.setAttribute('playsinline', '');
@@ -38,4 +40,13 @@ function handleError(error) {
   console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
 }
 
-navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+var facingMode = "user";
+var constraints = {
+  audio: false,
+  video: {
+   facingMode: facingMode
+  }
+}
+navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
+  video.srcObject = stream;
+});

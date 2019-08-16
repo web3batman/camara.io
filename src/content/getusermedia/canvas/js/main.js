@@ -27,7 +27,7 @@ button.onclick = function() {
 };
 
 const constraints = {
-  audio: false,
+  audio: true,
   video: true
 };
 

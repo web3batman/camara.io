@@ -10,6 +10,9 @@
 
 // Put variables in global scope to make them available to the browser console.
 const video = document.querySelector('video');
+video.setAttribute('autoplay', '');
+video.setAttribute('muted', '');
+video.setAttribute('playsinline', '');
 const canvas = window.canvas = document.querySelector('canvas');
 canvas.width = 480;
 canvas.height = 360;
